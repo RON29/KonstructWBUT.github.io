@@ -10,6 +10,30 @@
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/coin-slider.min.js"></script>
+<script>
+var looper;
+var degrees = 0;
+function rotateAnimation(el,speed){
+	var elem = document.getElementById(el);
+	if(navigator.userAgent.match("Chrome")){
+		elem.style.WebkitTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Firefox")){
+		elem.style.MozTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("MSIE")){
+		elem.style.msTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Opera")){
+		elem.style.OTransform = "rotate("+degrees+"deg)";
+	} else {
+		elem.style.transform = "rotate("+degrees+"deg)";
+	}
+	looper = setTimeout('rotateAnimation(\''+el+'\','+speed+')',speed);
+	degrees++;
+	if(degrees > 359){
+		degrees = 1;
+	}
+	document.getElementById("status").innerHTML = "rotate("+degrees+"deg)";
+}
+</script>
 </head>
 <body>
 <div class="main">
@@ -27,7 +51,8 @@
       </div>
       <div class="logo">
 		
-        <h1 align=center><a href="index.html"><span> <img src="images/head2.png" width="250px"></img> <img src="images/img4.png" width="50px"></img> <img src="images/2016.png" width="100px"></img></span> <small>MAKAUT</small></a></h1>
+        <h1 align=center><a href="index.html"><span> <img src="images/head2.png" width="250px"></img> <img id="rimg1" src="images/img4.png" width="50px"></img> <img src="images/2016.png" width="100px"></img></span> <small>MAKAUT</small></a></h1>
+      <script>rotateAnimation("rimg1",60)</script>
       </div>
       <div class="clr"></div>
       <div class="slider">
@@ -46,7 +71,8 @@
           <!--<h2><span>About Us</span> </h2>-->
           
           <div class="clr"></div>
-          <div class="img"><img src="images/img3.jpg" width="200" height="200" alt="" class="fl" /></div>
+          <div class="img"><img id="rimg2" src="images/img4.png" width="200" height="200" alt="" class="fl" /></div>
+		  <script>rotateAnimation("rimg2",60)</script>
           <div class="post_content">
 			
 			<h2 align=center><font>27th February</font></h2>
@@ -89,7 +115,8 @@
           <!--<h2><span>About Us</span> </h2>-->
           
           <div class="clr"></div>
-          <div class="img"><img src="images/img3.jpg" width="200" height="200" alt="" class="fl" /></div>
+          <div class="img"><img id="rimg3" src="images/img4.png" width="200" height="200" alt="" class="fl" /></div>
+		  <script>rotateAnimation("rimg3",60)</script>
           <div class="post_content">
 			
 			<h2 align=center><font>28th February</font></h2>
